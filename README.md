@@ -1,6 +1,8 @@
-### Challenge
+# Challenge
 
-Just a few programming challenges I solved by my own for the sake of fun.
+Just a few random programming challenges I solved by my own.
+
+> For the sake of fun.
 
 ### Howto
 
