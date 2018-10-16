@@ -5,16 +5,9 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.function.Executable
 
-val nums = mapOf(
-    "I" to 1,
-    "V" to 5,
-    "X" to 10,
-    "L" to 50,
-    "C" to 100,
-    "D" to 500,
-    "M" to 1000
-)
-
+/**
+ * Given a string of roman numerals, output the sum as decimal number.
+ */
 fun sumRomanNumerals(romanNumerals: String): Int {
     val nums = romanNumerals
         .reversed()
@@ -31,6 +24,16 @@ fun sumRomanNumerals(romanNumerals: String): Int {
     }
     return result
 }
+
+val nums = mapOf(
+    "I" to 1,
+    "V" to 5,
+    "X" to 10,
+    "L" to 50,
+    "C" to 100,
+    "D" to 500,
+    "M" to 1000
+)
 
 
 class RomanNumeralsTest {

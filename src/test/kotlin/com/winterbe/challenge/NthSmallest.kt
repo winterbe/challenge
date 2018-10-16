@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 /**
- * Finds the n-th smallest number of a given Array.
- *
- * https://interviewing.io/recordings/Java-Google-1/
+ * Given an unsorted array, find the nth smallest element in the array.
  */
 fun nthSmallest(n: Int, nums: Array<Int>): Int {
     fun divide(nums: Array<Int>, from: Int, to: Int): Pair<Int, Int> {
