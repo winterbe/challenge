@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
  * Given an unsorted array, find the nth smallest element in the array.
  */
 fun nthSmallest(n: Int, nums: Array<Int>): Int {
-    fun divide(nums: Array<Int>, from: Int, to: Int): Pair<Int, Int> {
+    fun nthSmallest(from: Int, to: Int): Int {
         val fence = nums[from]
         var fenceIndex = from
         var index = from + 1
@@ -28,22 +28,14 @@ fun nthSmallest(n: Int, nums: Array<Int>): Int {
         }
         return when {
             fenceIndex > n - 1 ->
-                from to fenceIndex
+                nthSmallest(from, fenceIndex)
             fenceIndex < n - 1 ->
-                (fenceIndex + 1) to to
+                nthSmallest(fenceIndex + 1, to)
             else ->
-                fenceIndex to fenceIndex
+                nums[fenceIndex]
         }
     }
-
-    var from = 0
-    var to = nums.size
-    while (from != to) {
-        val (a, b) = divide(nums, from, to)
-        from = a
-        to = b
-    }
-    return nums[from]
+    return nthSmallest(0, nums.size)
 }
 
 
