@@ -1,6 +1,7 @@
 package com.winterbe.challenge
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -29,30 +30,30 @@ fun vertexDistance(points: Array<Point>, vertex: Vertex, k: Int): List<Point> {
         while (index < end) {
             val point = points[index]
             val distance = euclideanDistance(point)
-            println("$point - $distance")
-            if (distance < fence) {
+            if (distance <= fence) {
                 fenceIndex++
                 index++
             } else {
-                points[index] = points[end - 1]
+                val last = points[end - 1]
+                points[index] =last
                 points[end - 1] = point
                 end--
             }
         }
 
         return when {
-            fenceIndex > k -> divide(from, fenceIndex)
-            fenceIndex < k -> divide(fenceIndex + 1, to)
-            else -> fenceIndex
+            fenceIndex > k - 1 ->
+                divide(from, fenceIndex)
+            fenceIndex < k - 1 ->
+                divide(fenceIndex + 1, to)
+            else ->
+                fenceIndex
         }
     }
 
-    val fenceIndex = divide(0, points.size)
-
-    println(points.toList())
-    println(fenceIndex)
-
-    return points.take(fenceIndex)
+    val index = divide(0, points.size)
+    check(index + 1 == k)
+    return points.take(k)
 }
 
 class VertexDistanceTest {
@@ -61,7 +62,10 @@ class VertexDistanceTest {
         val points = arrayOf(Point(1, 2), Point(3, -1), Point(2, 1), Point(2, 3))
         val vertex = Vertex(2, 2)
         val k = 3
-        val expected = listOf(Point(1, 2), Point(2, 1), Point(2, 3))
-        assertEquals(expected, vertexDistance(points, vertex, k))
+        val result = vertexDistance(points, vertex, k)
+        assertEquals(3, result.size)
+        assertTrue { result.contains(Point(1, 2)) }
+        assertTrue { result.contains(Point(2, 1)) }
+        assertTrue { result.contains(Point(2, 3)) }
     }
 }
