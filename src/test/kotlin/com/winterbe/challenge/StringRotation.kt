@@ -57,10 +57,21 @@ fun isRotation(s1: String, s2: String): Boolean {
     return false
 }
 
+// a much simpler solution
+fun isRotation2(s1: String, s2: String): Boolean {
+    if (s1.isEmpty() || s1.length != s2.length) {
+        return false
+    }
+    // s1    +    s1
+    // waterbottlewaterbottle
+    //    ~~~~~~~~~~~
+    return (s1 + s1).contains(s2)
+}
+
 
 class StringRotationTest {
     @Test
     fun test() {
-        assertTrue(isRotation("waterbottle", "erbottlewat"))
+        assertTrue(isRotation2("waterbottle", "erbottlewat"))
     }
 }
