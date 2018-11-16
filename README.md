@@ -1,16 +1,10 @@
 # Challenge
 
-Just a few random programming challenges I solved in my spare time. Code is written entirely by myself without looking at published solutions. I usually try to come up with a solution when I'm on the go (afk) and write the code later on. Turns out to be a great way to challenge my brain.
+This repository contains some programming puzzles I solve in my spare time for the sake of fun. I usually try to solve the exercises when I'm on the go (away from a computer) and write the code later on. Turns out to be a great way to challenge my brain.
 
-### Howto
+> Exercises are partly taken from the book [Cracking the Coding Interview](http://www.crackingthecodinginterview.com/) by Gayle Laakmann McDowell. A great book for everyone who wants to refresh his computer science skills. Highly recommended!
 
-Fork and/or clone the repo. Then setup gradle by executing this command once:
-
-```
-gradle wrapper
-```
-
-Now run the tests:
+### How to run the code
 
 ```
 gradle test
